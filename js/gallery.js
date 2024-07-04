@@ -1,3 +1,4 @@
+'use strict';
 const images = [
   {
     preview:
@@ -87,9 +88,9 @@ gallaryBox.addEventListener('click', event => {
 });
 
 const gallaryImageCode = images
-  .map(image => {
-    const { preview, original, description } = image;
-    return `<li class="gallery-item">
+  .map(
+    ({ preview, original, description }) =>
+      `<li class="gallery-item">
   <a class="gallery-link" href="${original}">
     <img
       class="gallery-image"
@@ -98,8 +99,8 @@ const gallaryImageCode = images
       alt="${description}"
     />
   </a>
-</li>`;
-  })
+</li>`
+  )
   .join('');
 
 gallaryBox.insertAdjacentHTML('beforeend', gallaryImageCode);
